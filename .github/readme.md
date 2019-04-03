@@ -1,41 +1,37 @@
-Drone is a Continuous Delivery system built on container technology. Drone uses a simple YAML configuration file, a superset of docker-compose, to define and execute Pipelines inside Docker containers. 
+This is a hard fork of Drone CI.
 
-<br/>
+The upstream project is at https://github.com/drone/drone
 
-<img src="https://github.com/drone/brand/blob/master/screenshots/screenshot_build_success.png" style="max-width:100px;" />
+This project pulls in upstream manually every week or two.
 
-Sample Pipeline Configuration:
+## What's the goal?
 
-```yaml
-pipeline:
-  backend:
-    image: golang
-    commands:
-      - go get
-      - go build
-      - go test
+Drone is a heavily forked project mostly because of its engineering qualities. Several companies I know forked Drone for their own purpose, either tp patch something that doesn't get merged in upstream, or incorporating Drone in their product.
 
-  frontend:
-    image: node:6
-    commands:
-      - npm install
-      - npm test
+This fork has different motivations.
 
-  publish:
-    image: plugins/docker
-    repo: octocat/hello-world
-    tags: [ 1, 1.1, latest ]
-    registry: index.docker.io
+**It is meant to distribute and improve upon the Drone OSS version.**
 
-  notify:
-    image: plugins/slack
-    channel: developers
-    username: drone
-```
+The fork's is distributed on Docker Hub with the image tag of `laszlocloud/drone-oss`. Builds are running on Drone Cloud https://cloud.drone.io/laszlocph/drone-oss
 
-Documentation and Other Links:
+This project is not associated with the company behind Drone.
 
-* Setup Documentation [docs.drone.io/installation](http://docs.drone.io/installation/)
-* Usage Documentation [docs.drone.io/getting-started](http://docs.drone.io/getting-started/)
-* Plugin Index [plugins.drone.io](http://plugins.drone.io/)
-* Getting Help [docs.drone.io/getting-help](http://docs.drone.io/getting-help/)
+## Why fork?
+
+The company behind Drone no longer distrobutes the OSS version.
+
+They make several gestures for hobbyists (using Gitea, Gogs, etc), and small companies under a certain revenue or yearly build count but users commercial users of 0.8 are left behind.
+
+Since Drone 1.0 the licensing model has changed, several used to be open source feature were removed from 0.8 and now part of the enterprise version of Drone.
+
+- No TLS
+- No agents
+- No Postgres or MySQL backends, only SQLite
+
+This renders the open source version close to useless and it's a setback for happy users of version 0.8. I wrote about this a bit more while I discovered the limitations here: https://laszlo.cloud/drone-community-edition-what-is-included
+
+## Roadmap
+
+The Github issues show what's planned.
+
+I'm not looking to implement all missing features as of now. Just distributing the OSS image and fixing tests is a good baseline what in my mind could have been a curtsy from the company behind Drone.
