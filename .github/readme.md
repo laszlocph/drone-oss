@@ -10,7 +10,7 @@ Drone is a heavily forked project mostly because of its engineering qualities. S
 
 This fork has different motivations.
 
-**It is meant to distribute and improve upon the Drone OSS version.**
+**It is meant to distribute the Drone OSS version.**
 
 The fork's is distributed on Docker Hub with the image tag of `laszlocloud/drone-oss`. Builds are running on Drone Cloud https://cloud.drone.io/laszlocph/drone-oss
 
