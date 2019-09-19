@@ -1,3 +1,5 @@
+**ARCHIVATION NOTICE: I gave up on Drone 1.0 and its OSS version. Instead I focus on the trustworthy Drone 0.8 stream and my fork at https://github.com/laszlocph/woodpecker**
+
 This is a hard fork of Drone CI.
 
 The upstream project is at https://github.com/drone/drone
